@@ -1,9 +1,7 @@
 window.onload = function(){
 {
 	let imgs = document.querySelectorAll(".banner-down .bannerbox")
-		console.log(imgs)
 		let dots = document.querySelectorAll(".dot .dot1")
-		console.log(dots)
 		dots.forEach(function(val,index){
 			val.onclick = function(){
 				for(i = 0; i < dots.length; i ++){
@@ -28,13 +26,13 @@ window.onload = function(){
 			dots[now].classList.add("active")
 			imgs[now].classList.add("active")
 		}
-		let st = setInterval(fn,1000);
+		let st = setInterval(fn,2000);
 		let banner = document.querySelector(".banner-down")
 		banner.onmouseover = function(){
 			clearInterval(st);
 		}
 		banner.onmouseout = function(){
-			st = setInterval(fn,1000);
+			st = setInterval(fn,2000);
 		}
 }
 
@@ -57,7 +55,6 @@ window.onload = function(){
 	let kuais = document.querySelectorAll("#leftbar li");
 	let floors = document.querySelectorAll(" .floor")
 	let leftbar = document.querySelector("#leftbar");
-	console.log(floors);
 	window.addEventListener("scroll", function(){
 		let st =obj.scrollTop;
 		if(st > 500){
@@ -79,14 +76,55 @@ window.onload = function(){
 			val.onclick = function(){
 				let ot = floors[index].offsetTop;
 				console.log(ot);
-				animate(obj,{scrollTop:ot-40})
+				animate(obj,{scrollTop:ot-60})
 			}
 		})
 	})
 }
+// 头部动效
+{
+	let yi = document.querySelectorAll(".yi");
+	let a = document.querySelectorAll(".head-rightwenzi1 a")
+	yi.forEach(function(val,index){
+		val.onmouseover = function(){
+			a[index].classList.add("active");
+		}
+		val.onmouseout = function(){
+			a[index].classList.remove("active");
+		}
+	})
+
+}
+
+//搜索动效
+    {
+        let input = document.querySelector(".search-up input");
+        input.onfocus = function () {
+            input.classList.add("active1");
+            input.classList.remove("active2");
+        }
+        input.onblur = function () {
+            input.classList.add("active2");
+            input.classList.remove("active1");
+        }
+    }
+//左侧类表
+{
+	let lists = document.querySelectorAll(".banner-down .list1");
+	let biglists = document.querySelectorAll(".banner-down .biglist");
+	lists.forEach(function(val,index){
+        val.onmouseover = function(){
+			val.classList.add("active");
+			biglists[index].style.display = "block";
+        }
+        val.onmouseout = function(){
+            val.classList.remove("active");
+            biglists[index].style.display = "none";
+        }
+	})
 
 
-
+}
 
 
 
